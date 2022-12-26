@@ -1,11 +1,12 @@
 const apiUrl="https://api.themoviedb.org/3"
 const trendingMovies="/trending/movie/week?"
 const trendingTvShows='/trending/tv/week?'
+const trendingPeople='/trending/person/week?'
 const apiKey="api_key=75de9c2bf1d5b6ca46e3e0b5407fc0f2&"
 const imgpath='https://www.themoviedb.org/t/p/w600_and_h900_bestv2'
-let result
+
 async function getMovies(url){
-     result = await fetch(url)
+    let result = await fetch(url)
      console.log(result)
     let data= await result.json()
     console.log(data)
@@ -15,7 +16,7 @@ async function getMovies(url){
 
 }
 async function getPeople(url){
-    result = await fetch(url)
+    let result = await fetch(url)
     console.log(result)
    let data= await result.json()
    console.log(data)
@@ -25,7 +26,7 @@ async function getPeople(url){
 
 }
 async function getTv(url){
-    result = await fetch(url)
+   let result = await fetch(url)
     console.log(result)
    let data= await result.json()
    console.log(data)
@@ -45,10 +46,9 @@ async function showMoviesInHome (){
             const {title , poster_path}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
-            movieCard.innerHTML=`<div class="card">
+            movieCard.innerHTML=`
             <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}" alt="moviePic">
-            <p>${title}</p>
-        </div>`;
+            <p>${title}</p>`;
         movieSec.appendChild(movieCard)
         });
         
@@ -64,29 +64,27 @@ async function showTvInHome (){
             const {original_name , poster_path}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
-            movieCard.innerHTML=`<div class="card">
+            movieCard.innerHTML=`
             <img src="${imgpath+poster_path}" alt="moviePic">
-            <p>${original_name}</p>
-        </div>`;
+            <p>${original_name}</p>`;
         movieSec.appendChild(movieCard)
         });
         
     })
 }
 async function showPeopleInHome (){
-    const movieSec=document.getElementById('tv-section')
+    const movieSec=document.getElementById('people-section')
     movieSec.innerHTML=''
-    getTv(apiUrl+trendingTvShows+apiKey).then((data)=>{
+    getTv(apiUrl+trendingPeople+apiKey).then((data)=>{
         data.splice(4,15)
         console.log(data.length)
         data.forEach(movie => {
-            const {original_name , poster_path}=movie
+            const {original_name , profile_path}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
-            movieCard.innerHTML=`<div class="card">
-            <img src="${imgpath+poster_path}" alt="moviePic">
-            <p>${original_name}</p>
-        </div>`;
+            movieCard.innerHTML=`
+            <img src="${imgpath+profile_path}" alt="moviePic">
+            <p>${original_name}</p>`;
         movieSec.appendChild(movieCard)
         });
         
@@ -94,3 +92,4 @@ async function showPeopleInHome (){
 }
 showMoviesInHome()
 showTvInHome()
+showPeopleInHome()
