@@ -34,9 +34,39 @@ li:hover{
 }
 .section{
     padding: 0% 10%;
+    display: flex ;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+.section a{
+    text-decoration: none;
 }
 .card{
-    width: 270px;
+    width: 220px;
     height: 350px;
     background-color:#51557E ;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    color: #D6D5A8;
+    font-weight: bolder;
+    
+}
+.card:hover{
+    background-color: #816797;
+}
+.card img{
+    height: 300px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.card p {
+    font-size: 24px;
+}
+.sectionTitle{
+    margin-left: 30px;
 }
