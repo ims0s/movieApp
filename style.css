@@ -1,0 +1,42 @@
+html{
+    background-color: #1B2430;
+    color: #D6D5A8;
+}
+body{
+    margin: 0;
+}
+
+nav{
+    background-color: #51557E;
+}
+ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    gap: 20px;
+    padding: 3px 40px;
+    align-items: center;
+}
+li{
+    background-color: #816797 ;
+    border-radius: 5px;
+}
+li a{
+    color: #D6D5A8;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 5px;
+    display: flex;
+}
+li:hover{
+    background-color:  #1B2430;
+}
+.section{
+    padding: 0% 10%;
+}
+.card{
+    width: 270px;
+    height: 350px;
+    background-color:#51557E ;
+}
