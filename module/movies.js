@@ -1,6 +1,6 @@
 import {apiKey , apiUrl , imgpath , getMovies ,trendingMovies } from "./module.js"
 
-
+console.log(apiUrl+trendingMovies+apiKey)
 
 async function showAllMovies(){
     const movieSec=document.getElementById('movies-section')

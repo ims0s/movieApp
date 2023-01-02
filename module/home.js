@@ -4,7 +4,7 @@ async function showMoviesInHome (){
     const movieSec=document.getElementById('movies-section')
     movieSec.innerHTML=''
     get.getMovies(get.apiUrl+get.trendingMovies+get.apiKey).then((data)=>{
-        data.splice(4,15)
+        data.splice(5,15)
         console.log(data.length)
         data.forEach(movie => {
             const {title , poster_path}=movie
@@ -22,7 +22,7 @@ async function showTvInHome (){
     const movieSec=document.getElementById('tv-section')
     movieSec.innerHTML=''
     get.getTv(get.apiUrl+get.trendingTvShows+get.apiKey).then((data)=>{
-        data.splice(4,15)
+        data.splice(5,15)
         console.log(data.length)
         data.forEach(movie => {
             const {original_name , poster_path}=movie
@@ -40,7 +40,7 @@ async function showPeopleInHome (){
     const movieSec=document.getElementById('people-section')
     movieSec.innerHTML=''
     get.getTv(get.apiUrl+get.trendingPeople+get.apiKey).then((data)=>{
-        data.splice(4,15)
+        data.splice(5,15)
         console.log(data.length)
         data.forEach(movie => {
             const {original_name , profile_path}=movie
