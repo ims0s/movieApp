@@ -20,9 +20,9 @@ async function getmovie(id){
 async function showDetail(){
     getmovie(movieId).then((movie) =>{
         console.log(movie)
-        const {title , overview , poster_path,genres} = movie
+        const {original_name, overview , poster_path,genres} = movie
         pagePoster.src=imgpath+poster_path
-        pageTitle.innerHTML=title
+        pageTitle.innerHTML=original_name
         pageOverview.innerHTML=overview
         pagegenres.innerText=""
         genres.forEach(genre => {
@@ -41,12 +41,12 @@ async function showRecommendedMovies (){
         data.splice(5,15)
         console.log(data.length)
         data.forEach(movie => {
-            const {title , poster_path,id}=movie
+            const {original_name , poster_path,id}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
             movieCard.innerHTML=`
-            <a href="./pages/detail.html?id=${id}"><img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}" alt="moviePic">
-            <p>${title}</p></a>`;
+            <a href="./tvDetails.html?id=${id}"><img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}" alt="moviePic">
+            <p>${original_name}</p></a>`;
             movieSec.appendChild(movieCard)
         });
         

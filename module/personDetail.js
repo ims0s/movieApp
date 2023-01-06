@@ -38,14 +38,14 @@ async function showRecommendedMovies (){
     const movieSec=document.getElementById('movies-section')
     movieSec.innerHTML=''
     getmovie(movieId+recommendation).then((data)=>{return data.cast}).then((data)=>{
-        data.splice(6,19)
+        data.splice(6,data.length - 6)
         console.log(data.length)
         data.forEach(movie => {
             const {title , poster_path,id}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
             movieCard.innerHTML=`
-            <a href="./pages/detail.html?id=${id}"><img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}" alt="moviePic">
+            <a href="./detail.html?id=${id}"><img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}" alt="moviePic">
             <p>${title}</p></a>`;
             movieSec.appendChild(movieCard)
         });

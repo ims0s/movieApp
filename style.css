@@ -81,12 +81,16 @@ li:hover{
     padding: 10px;
     background-color: #816797;
     border-radius: 15px;
+    flex-grow: 0;
+    max-height: 460px;
     
 }
 .poster img{
     width: 300px;
     border-radius: 15px;
-    flex-shrink: 1;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-height: min-content;
 }
 .titleOverview{
     background-color: #816797;
