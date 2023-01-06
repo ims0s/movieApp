@@ -7,12 +7,12 @@ async function showAllTvShows(){
     getTv(apiUrl+trendingTvShows+apiKey).then((data)=>{
         console.log(data.length)
         data.forEach(movie => {
-            const {original_name , poster_path}=movie
+            const {original_name , poster_path,id}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
             movieCard.innerHTML=`
-            <img src="${imgpath+poster_path}" alt="tvPoster">
-            <p>${original_name}</p>`;
+            <a href="./tvDetails.html?id=${id}"><img src="${imgpath+poster_path}" alt="tvPoster">
+            <p>${original_name}</p></a>`;
         movieSec.appendChild(movieCard)
         });
         

@@ -1,6 +1,6 @@
 import {apiKey , apiUrl , imgpath , getMovies ,trendingMovies } from "./module.js"
 
-const getMovie="/movie/"
+const getMovie="/tv/"
 const recommendation="/recommendations"
 const pageOverview=document.getElementById("overview")
 const pageTitle=document.getElementById("title")

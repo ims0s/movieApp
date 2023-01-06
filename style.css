@@ -90,7 +90,7 @@ li:hover{
 }
 .titleOverview{
     background-color: #816797;
-    
+    flex-grow: 1;
     border-radius: 15px;
     color: #D6D5A8;
     text-align: center;

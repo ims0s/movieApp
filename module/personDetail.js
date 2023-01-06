@@ -1,7 +1,7 @@
 import {apiKey , apiUrl , imgpath , getMovies ,trendingMovies } from "./module.js"
 
-const getMovie="/movie/"
-const recommendation="/recommendations"
+const getMovie="/person/"
+const recommendation="/movie_credits"
 const pageOverview=document.getElementById("overview")
 const pageTitle=document.getElementById("title")
 const pagePoster = document.getElementById("poster")
@@ -20,16 +20,16 @@ async function getmovie(id){
 async function showDetail(){
     getmovie(movieId).then((movie) =>{
         console.log(movie)
-        const {title , overview , poster_path,genres} = movie
-        pagePoster.src=imgpath+poster_path
-        pageTitle.innerHTML=title
-        pageOverview.innerHTML=overview
+        const {name , biography , profile_path,place_of_birth} = movie
+        pagePoster.src=imgpath+profile_path
+        pageTitle.innerHTML=name
+        pageOverview.innerHTML=biography
         pagegenres.innerText=""
-        genres.forEach(genre => {
-            let page=document.createElement("p")
-            page.innerHTML=genre.name
-            pagegenres.appendChild(page)
-        });
+        
+        let page=document.createElement("p")
+        page.innerHTML=place_of_birth
+        pagegenres.appendChild(page)
+        
 
     })
     
@@ -37,8 +37,8 @@ async function showDetail(){
 async function showRecommendedMovies (){
     const movieSec=document.getElementById('movies-section')
     movieSec.innerHTML=''
-    getMovies(apiUrl+getMovie+movieId+recommendation+apiKey).then((data)=>{
-        data.splice(5,15)
+    getmovie(movieId+recommendation).then((data)=>{return data.cast}).then((data)=>{
+        data.splice(6,19)
         console.log(data.length)
         data.forEach(movie => {
             const {title , poster_path,id}=movie

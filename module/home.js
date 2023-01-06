@@ -25,11 +25,11 @@ async function showTvInHome (){
         data.splice(5,15)
         console.log(data.length)
         data.forEach(movie => {
-            const {original_name , poster_path}=movie
+            const {original_name , poster_path,id}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
             movieCard.innerHTML=`
-            <a href=""><img src="${get.imgpath+poster_path}" alt="tvPoster">
+            <a href="./pages/tvDetails.html?id=${id}"><img src="${get.imgpath+poster_path}" alt="tvPoster">
             <p>${original_name}</p></a>`;
         movieSec.appendChild(movieCard)
         });
@@ -43,11 +43,11 @@ async function showPeopleInHome (){
         data.splice(5,15)
         console.log(data.length)
         data.forEach(movie => {
-            const {original_name , profile_path}=movie
+            const {original_name , profile_path,id}=movie
             const movieCard=document.createElement('div')
             movieCard.classList.add('card')
             movieCard.innerHTML=`
-            <img src="${get.imgpath+profile_path}" alt="person photo">
+            <a href=./pages/personDetail.html?id=${id}><img src="${get.imgpath+profile_path}" alt="person photo">
             <p>${original_name}</p>`;
         movieSec.appendChild(movieCard)
         });
